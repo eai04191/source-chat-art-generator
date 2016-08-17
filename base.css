@@ -1,0 +1,132 @@
+html {
+    font-size: 93.8%;
+}
+body {
+    padding-top: 1.1rem;
+}
+a {
+    cursor: pointer;
+}
+.card-block {
+    padding: 1.1rem;
+}
+/* md lg xlの時だけ */
+@media (min-width: 768px) {
+    main #articles {
+        padding-right: 0;
+    }
+    
+}
+/* 外部リンクにマークつけるやつ
+a[target="_blank"]:after {
+    content: "\f08e";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+}
+*/
+header h1 {
+    font-size: 2rem;
+}
+img.card-img-top{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    min-width:100%;
+    max-height:100%;
+    min-height:100%;
+}
+.card-block p.lead-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    width: 100%;
+}
+.post-info .tag a+a {
+    margin-left: 0.5rem;
+}
+/* 前の記事 次の記事 */
+#articles nav .card {
+    padding: 0;
+}
+#articles nav.card-group {
+    margin-bottom: .75rem;
+}
+#articles nav.card-group .card:empty {
+    display: none;
+}
+/* md lg xlの時だけ表示する*/
+@media (min-width: 544px) {
+    /* カードが1つだけの場合radiusをかける */
+    #articles nav.card-group .card:only-child {
+        border-radius: .25rem;
+    }
+
+}
+
+
+
+/* サイドメニュー */
+
+nav a.list-group-item {
+    color: #0275d8;
+}
+nav a.list-group-item:focus, nav a.list-group-item:hover {
+    color: #014c8c;
+    text-decoration: underline;
+    background-color: transparent;
+}
+nav .label {
+    float: right;
+    font-size: 90%;
+}
+nav #profile #profile-icon{
+    margin-right: 1rem;
+}
+/* 合わせて.75rem */
+nav #profile .card-footer{
+    padding-bottom: .25rem;
+}
+nav #profile .card-footer .btn {
+    margin-bottom: .5rem;
+}
+
+
+
+/* その他 */
+
+.pixelated {
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: pixelated;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* material-icons */
+.material-icons {
+    font-size: 1.4rem;
+    vertical-align: bottom;
+}
+
+.material-icons.md-mini {
+    font-size: 1.3rem; 
+}
+
+nav h4 .material-icons {
+    font-size: 1.65rem;
+}
+
+/* Font Awesome hatena bookmark */
+.fa-hatena-bookmark:before {
+	content: "B!";
+	font-family: Verdana;
+	font-weight: bold
+}
