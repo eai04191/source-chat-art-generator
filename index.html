@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+        <meta charset="utf-8">
+        <meta name="author" content="Eai">
+        <meta name="description" content="チャット芸するコマンド作るやつ。">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="format-detection" content="telephone=no,address=no,email=no">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- <link href="http://blog.mizle.net/" rel="canonical"> -->
+        <meta property="og:title" content="L4D2 Chat Art Generator />
+            <meta property="og:type" content="article" />
+        <meta property="og:url" content="lab.mizle.net/l4d2/chatgay/" />
+        <!-- <meta property="og:image" content="画像のURL" /> -->
+        <meta property="og:site_name"  content="L4D2 Chat Art Generator" />
+        <meta property="og:description" content="チャット芸するコマンド作るやつ。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@eai04191" />
+        <meta name="theme-color" content="#fff">
+        <link href="favicon.ico" rel="icon"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://lab.mizle.net/blog_mockup/assets/styles/b.css" rel="stylesheet">
+        <title>L4D2 Chat Art Generator</title>
+        <style>
+            * {
+            transition: 0.25s;
+            }
+            .fa {
+            }
+            a {
+            transition: 0;
+            }
+            #nana {
+            position: relative;
+            z-index: 77;
+            opacity: 1;
+            }
+            #nana :hover {
+            opacity: 0;
+            }
+            #nana img {
+            width: 100%;
+            }
+            .fa {
+            margin-right: .3em;
+            }
+            h2 .fa {
+            margin-right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="container">
+            <div class="card card-block">
+                <h1 class="card-title"><a href="http://lab.mizle.net/l4d2/chatgay/"><i class="fa fa-comment" aria-hidden="true"></i>L4D2 Chat Art Generator</a></h1>
+                <p class="card-text">チャット芸するコマンド作るやつ。</p>
+            </div>
+        </header>
+        <main class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-5">
+                    <div class="card card-inverse">
+                        <a id="nana" href="https://twitter.com/uzk17/status/765223551158788096"><img class="card-img" src="http://i.imgur.com/jDr6A29.png" alt="どうしてなんでしょうね？"></a>
+                        <div class="card-img-overlay">
+                            <h4 class="card-title" style="color: #373a3c;">すべてのはじまり</h4>
+                            <blockquote class="twitter-tweet" data-lang="ja">
+                                <p lang="ja" dir="ltr">L4D2チャット芸する奴簡単だけどめんどくさいのでeaiあたりにアレしたら作るやつ作れそう</p>
+                                &mdash; うざき (@uzk17) <a href="https://twitter.com/uzk17/status/765223551158788096">2016年8月15日</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="card card-block">
+                        <h4 class="card-title">予定追加機能</h4>
+                        <p class="card-text">
+                        <ul>
+                            <li>コピペ用に先頭のスペースを削除</li>
+                        </ul>
+                        </p>
+                        <h4 class="card-title">バグ</h4>
+                        <p class="card-text">
+                        <ul>
+                            <li>"判定の前に//判定をすると"判定が無視される</li>
+                            <li>複数のform-control-*が付与される</li>
+                        </ul>
+                        </p>
+                        <h4 class="card-title">要望</h4>
+                        <p class="card-text">
+                        <a id="tweet-button" class="btn btn-outline-primary btn-sm btn-block" href="https://twitter.com/intent/tweet?text=@eai04191%20" role="button" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i><span>@eai04191へツイート</span></a>
+                        </p>
+                        
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-8 col-md-7">
+                    <div class="card card-block">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group" id="key">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-keyboard-o" aria-hidden="true"></i>使用するキー</span>
+                                        <input type="text" class="form-control" placeholder="B">
+                                    </div>
+                                    <div class="form-control-feedback" style="display: none;">全角文字・空白は使用できません。<br><a href="https://wiki.teamfortress.com/wiki/Scripting/ja#.E3.82.AD.E3.83.BC.E3.81.AE.E5.90.8D.E7.A7.B0.E3.81.AE.E4.B8.80.E8.A6.A7">参考: キーの名称の一覧</a></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group has-success" id="wait">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i>Wait値</span>
+                                        <input type="text" class="form-control form-control-success" value="100">
+                                    </div>
+                                    <div class="form-control-feedback" style="display: none;">数字のみ指定できます。</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="input" style="margin-bottom: 0;">
+                            <textarea class="form-control" rows="7"></textarea>
+                            <div class="form-control-feedback" id="replace-warn-1" style="display: none;">「"」は「''」に変換されます。</div>
+                            <div class="form-control-feedback" id="replace-warn-2" style="display: none;">「//」は「ﾉﾉ」に変換されます。</div>
+                            <small class="form-text text-muted">通常1画面に表示されるチャットは7行です。</small>
+                        </div>
+                    </div>
+                    <div class="card card-block">
+                        <div class="form-group" id="command">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-terminal aria-hidden="true"></i>コマンド</span>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                            <div class="form-control-feedback" id="length-warn" style="display: none;">コマンドが130文字以上です。</div>
+                            <small class="form-text text-muted">コマンド1行は最大130文字です。</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="container">
+            <div class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <p><i class="fa fa-angellist" aria-hidden="true"></i><a href="http://steamcommunity.com/profiles/76561198040100825/">Eai</a></p>
+                        </div>
+                        <div class="col-xs-9 text-xs-right">
+                            <p>なんだかんだ作るのに数時間かかったから許さん。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="//platform.twitter.com/widgets.js"></script>
+        <script>
+            var inputKey = "B";
+            var inputWait = $("#wait input").val();
+            $(document).ready(function(){
+                // 外部リンクにtarget="_blank"を付与
+                $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+                $("#command").hover(
+                    function(){
+                        $(this).select();
+                    },
+                    function(){
+                        $(this).blur();
+                    }
+                );
+                $("#key input").on("blur keypress change keydown keyup", function(){
+                        // ASCII文字のみ
+                        if(!$(this).val().match(/^[\u0020-\u007e]+$/)){
+                            $(this).addClass("form-control-danger");
+                            $("#key").addClass("has-danger");
+                            $("#key .form-control-feedback").show(250);
+                            someError();
+                        } else {
+                            $(this).removeClass("form-control-danger");
+                            $("#key").removeClass("has-danger");
+                            $(this).addClass("form-control-success");
+                            $("#key").addClass("has-success");
+                            $("#key .form-control-feedback").hide(250);
+                            noError();
+                        }
+                        inputKey = $("#key input").val();
+                        makeCommand();
+                    }
+                );
+                $("#wait input").on("blur keypress change keydown keyup", function(){
+                        // 数字のみ
+                        if(!$(this).val().match(/^\d+$/)){
+                            $(this).addClass("form-control-danger");
+                            $("#wait").addClass("has-danger");
+                            $("#wait .form-control-feedback").show(250);
+                            someError();
+                        } else {
+                            $(this).removeClass("form-control-danger");
+                            $("#wait").removeClass("has-danger");
+                            $(this).addClass("form-control-success");
+                            $("#wait").addClass("has-success");
+                            $("#wait .form-control-feedback").hide(250);
+                            noError();
+                        }
+                        inputWait = $(this).val();
+                        makeCommand();
+                    }
+                );
+                $("#input textarea").on("blur keypress change keydown keyup", function(){
+                        // 「//」「"」は変換表示
+                        if($(this).val().match(/\"/)){
+                            $(this).addClass("form-control-warning");
+                            $("#input").addClass("has-warning");
+                            $("#input #replace-warn-1 ").show(250);
+                        } else if($(this).val().match(/\/\//)){
+                            $(this).addClass("form-control-warning");
+                            $("#input").addClass("has-warning");
+                            $("#input #replace-warn-2 ").show(250);
+                        }else {
+                            $(this).removeClass("form-control-warning");
+                            $("#input").removeClass("has-warning");
+                            $(this).addClass("form-control-success");
+                            $("#input").addClass("has-success");
+                            $("#input .form-control-feedback").hide(250);
+                        }
+                        makeCommand();
+                    }
+                );
+            });
+            function makeCommand(){
+                var input = $("#input textarea").val();
+                input = input.replace( /\"/g , "''" );
+                input = input.replace( /\/\//g , "ﾉﾉ" );
+                var command = 'bind ' + inputKey + ' "' + input.replace(/^(.+?)$/mg,'say $1;wait ' + inputWait + ';') + '"';
+                $("#command input").val(command);
+                if ($("#command input").val().length > 130) {
+                    $("#command input").addClass("form-control-danger");
+                    $("#command").addClass("has-danger");
+                    $("#length-warn").show(250);
+                } else{
+                    $("#command input").removeClass("form-control-danger");
+                    $("#command").removeClass("has-danger");
+                    $("#length-warn").hide(250);
+                }
+            }
+            function someError(){
+                $("#command").css("cursor","not-allowed");
+            }
+            function noError(){
+                $("#command").css("cursor","auto");
+            }
+        </script>
+    </body>
+</html>
