@@ -141,7 +141,7 @@
             var inputKey = "B";
             var inputWait = $("#wait input").val();
             $(document).ready(function(){
-                $("#command").on("mouseenter", function() {
+                $("#command input").on("mouseenter", function() {
                     var range, selection;
                     window.getSelection && document.createRange ? (selection = window.getSelection(),
                     range = document.createRange(),
