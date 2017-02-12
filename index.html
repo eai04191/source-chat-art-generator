@@ -141,6 +141,16 @@
             var inputKey = "B";
             var inputWait = $("#wait input").val();
             $(document).ready(function(){
+                $("#command").on("mouseenter", function() {
+                    var range, selection;
+                    window.getSelection && document.createRange ? (selection = window.getSelection(),
+                    range = document.createRange(),
+                    range.selectNodeContents($(this)[0]),
+                    selection.removeAllRanges(),
+                    selection.addRange(range)) : document.selection && document.body.createTextRange && (range = document.body.createTextRange(),
+                    range.moveToElementText($(this)[0]),
+                    range.select())
+                });
                 // 外部リンクにtarget="_blank"を付与
                 $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
                 $("#command").hover(
