@@ -112,7 +112,7 @@
                         <div class="form-group" id="command">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-terminal aria-hidden="true"></i>コマンド</span>
-                                <input type="text" class="form-control" readonly>
+                                <input type="text" class="form-control auto-select" readonly>
                             </div>
                             <div class="form-control-feedback" id="length-warn" style="display: none;">コマンドが130文字以上です。</div>
                             <small class="form-text text-muted">コマンド1行は最大130文字です。</small>
@@ -141,15 +141,11 @@
             var inputKey = "B";
             var inputWait = $("#wait input").val();
             $(document).ready(function(){
-                $("#command input").on("mouseenter", function() {
-                    var range, selection;
-                    window.getSelection && document.createRange ? (selection = window.getSelection(),
-                    range = document.createRange(),
-                    range.selectNodeContents($(this)[0]),
-                    selection.removeAllRanges(),
-                    selection.addRange(range)) : document.selection && document.body.createTextRange && (range = document.body.createTextRange(),
-                    range.moveToElementText($(this)[0]),
-                    range.select())
+                $(".auto-select").on("mouseenter", function() {
+                   this.select(0,this.value.length)
+                });
+                $(".auto-select").on("mouseleave", function() {
+                   window.getSelection().empty();
                 });
                 // 外部リンクにtarget="_blank"を付与
                 $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
